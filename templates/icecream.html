@@ -31,8 +31,8 @@
                     <p class="card-text">{{ product.description|truncatewords:5 }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Add To Cart</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary cart">Buy</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary cart">Add To Cart</button>
                         </div>
                     </div>
                 </div>
@@ -45,3 +45,19 @@
 </div>
 
 {% endblock body %}
+{% block js %}
+<script>
+
+    if(localStorage.getItem('cart')==null){
+        var cart={}
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'));
+    }
+
+    $('.cart').click(function(){
+        console.log("clicked");
+    })
+
+</script>
+{%endblock js%}
