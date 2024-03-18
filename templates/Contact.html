@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock title %}
+{% block body %}
+<div class="bg-dark text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Contact Us</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="fs-5 mb-4">Need assistance? Click "Email Us" to send us an email or "Visit Us" to come to our shop in person. We're here to help and look forward to meeting you.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" onclick="window.location.href='tel:+1234567890'">Call Us</button>
+                <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" onclick="window.open('https://www.google.com/maps/place/Narmada+Square/@22.6855367,75.8216493,15.11z/data=!4m6!3m5!1s0x3962fd33cb094ee5:0xc936bcc89c46c171!8m2!3d22.6758433!4d75.8255733!16s%2Fg%2F11rsfsb3h6?entry=ttu', '_blank')">Reach Us</button>
+            </div>
+            <div class="container my-4">
+                <h1 class="text-light">Provide Feedback</h1>
+                <form method="post" action="/contact">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">description</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Send Email</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
